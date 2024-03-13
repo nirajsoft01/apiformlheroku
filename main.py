@@ -25,7 +25,7 @@ model = pickle.load(open('sbmodel.sav', 'rb'))
 @app.post('/generate_summary')
 def generate_summary(input_data: InputData):
     input_text = input_data.Response
-    generated_summary = generate_summary(input_text)
+    generated_summary = model.predict(input_text)
     return {'generated_summary': generated_summary}
 
 if __name__ == "__main__":
